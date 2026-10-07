@@ -1,0 +1,42 @@
+<section class="page">
+  <h1>Add a new book</h1>
+  <p class="hint">
+    Product code must start with <strong>{{productPrefix}}</strong>.
+    VAT is applied automatically at <strong>{{vatPercent}}%</strong>.
+    Data is written with the <code>user_write_23IT005</code> account.
+  </p>
+
+  {{#if error}}
+  <div class="alert alert-error">{{error}}</div>
+  {{/if}}
+
+  <form class="form" method="POST" action="/books">
+    <label>
+      Product code
+      <input
+        type="text"
+        name="code"
+        placeholder="e.g. {{productPrefix}}BOOK01"
+        value="{{form.code}}"
+        required
+      />
+    </label>
+
+    <label>
+      Title
+      <input type="text" name="title" value="{{form.title}}" required />
+    </label>
+
+    <label>
+      Author
+      <input type="text" name="author" value="{{form.author}}" required />
+    </label>
+
+    <label>
+      Price (VND, before tax)
+      <input type="number" name="price" min="0" step="1000" value="{{form.price}}" required />
+    </label>
+
+    <button class="btn" type="submit">Save book</button>
+  </form>
+</section>
