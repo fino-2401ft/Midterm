@@ -88,3 +88,5 @@ start().catch((err) => {
   console.error('Failed to start:', err);
   process.exit(1);
 });
+
+// Stateless Session: MongoStore -> MongoDB Atlas (feature/session)
